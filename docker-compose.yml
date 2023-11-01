@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+    glaz-go-api:
+        container_name: glaz-go-api
+        hostname: payment-app
+        build:
+            context: ./
+        volumes:
+            - .:/var/www/html
+        image: glaz-go-api
+        ports:
+            - "9001:9000"
+        depends_on:
+            - postgres
+            - redis
+        networks:
+            - glaz-go-network
+
+    nginx:
+        image: nginx:1.23.1-alpine
+        container_name: glaz-go-nginx
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "8080:80"
+        volumes:
+        - ./:/var/www/html
+        - ./nginx/:/etc/nginx/conf.d/
+        depends_on:
+            - glaz-go-api
+        networks:
+            - glaz-go-network
+
+    postgres:
+        image: postgres:13
+        container_name: glaz-go-postgres
+        environment:
+            POSTGRES_DB: payment
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: secret
+        ports:
+            - "5438:5432"
+        networks:
+            - glaz-go-network
+
+    redis:
+        image: redis:latest
+        container_name: glaz-go-redis
+        ports:
+            - "6389:6379"
+        networks:
+            - glaz-go-network
+
+networks:
+    glaz-go-network:
