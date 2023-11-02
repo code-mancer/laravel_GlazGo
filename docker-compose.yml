@@ -36,13 +36,14 @@ services:
         image: postgres:13
         container_name: glaz-go-postgres
         environment:
-            POSTGRES_DB: payment
+            POSTGRES_DB: glaz_go
             POSTGRES_USER: root
             POSTGRES_PASSWORD: secret
         ports:
             - "5438:5432"
         networks:
             - glaz-go-network
+        hostname: glaz-go-postgres
 
     redis:
         image: redis:latest
