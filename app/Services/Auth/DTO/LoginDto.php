@@ -2,15 +2,15 @@
 
 namespace App\Services\Auth\DTO;
 
-use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use App\infrastructure\DTO\BaseDTO;
 
-class RegisterDTO extends BaseDTO
+class LoginDto extends BaseDTO
 {
     public string $email;
     public string $password;
 
-    static public function fromRequest(RegisterRequest $request): self
+    static public function fromRequest(LoginRequest $request): self
     {
         return self::from([
             'email' =>$request->getEmail(),

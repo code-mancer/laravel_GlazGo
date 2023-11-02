@@ -1,6 +1,6 @@
 <?php
 
-namespace App\infrastructures\UseCase;
+namespace App\infrastructure\UseCase;
 
 abstract class BaseUseCase
 {

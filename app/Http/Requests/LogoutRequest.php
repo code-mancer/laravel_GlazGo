@@ -2,13 +2,15 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Http\Request;
+use App\infrastructure\BaseRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class LogoutRequest extends Request
+class LogoutRequest extends BaseRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     public function rules(): array

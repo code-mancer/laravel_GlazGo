@@ -1,6 +1,6 @@
 <?php
 
-namespace App\infrastructures\Action;
+namespace App\infrastructure\Action;
 
 abstract class BaseAction
 {

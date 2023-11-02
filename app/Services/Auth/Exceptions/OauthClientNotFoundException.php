@@ -2,18 +2,18 @@
 
 namespace App\Services\Auth\Exceptions;
 
-
 use App\infrastructure\Exceptions\BusinessLogicException;
 
-class UserNotRegisteredException extends BusinessLogicException
+class OauthClientNotFoundException extends BusinessLogicException
 {
+
     public function getStatus(): int
     {
-        return self::SERVER_ERROR;
+        return self::NOT_FOUND;
     }
 
     public function getStatusMessage(): string
     {
-        return 'User registration error';
+        return 'Oauth client not found error exception';
     }
 }

@@ -21,6 +21,7 @@ class RegisterRequest extends FormRequest
             self::EMAIL => [
                 'email',
                 'required',
+                'unique:users',
             ],
             self::PASSWORD_CONFIRMATION => [
                 'string',

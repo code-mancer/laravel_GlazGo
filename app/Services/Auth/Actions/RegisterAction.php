@@ -2,7 +2,7 @@
 
 namespace App\Services\Auth\Actions;
 
-use App\infrastructures\Action\BaseAction;
+use App\infrastructure\Action\BaseAction;
 use App\Models\User;
 use App\Services\Auth\DTO\RegisterDTO;
 use App\Services\Auth\Exceptions\UserNotRegisteredException;

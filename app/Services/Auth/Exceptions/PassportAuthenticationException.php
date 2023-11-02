@@ -2,10 +2,9 @@
 
 namespace App\Services\Auth\Exceptions;
 
-
 use App\infrastructure\Exceptions\BusinessLogicException;
 
-class UserNotRegisteredException extends BusinessLogicException
+class PassportAuthenticationException extends BusinessLogicException
 {
     public function getStatus(): int
     {
@@ -14,6 +13,6 @@ class UserNotRegisteredException extends BusinessLogicException
 
     public function getStatusMessage(): string
     {
-        return 'User registration error';
+        return 'Passport authentication exception';
     }
 }
